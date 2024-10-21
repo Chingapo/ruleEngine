@@ -1,0 +1,8 @@
+# Ignore .env files
+*.env
+
+# Ignore node_modules folders
+node_modules/
+
+# Ignore Next.js build output
+rule-engine-frontend/.next/
