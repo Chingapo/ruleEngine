@@ -1,8 +1,5 @@
-require('dotenv').config(); // Load environment variables from .env file
 const admin = require('firebase-admin');
-
-// Parse the service account credentials from the environment variable
-const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+const serviceAccount = require("./serviceAccountKey.json"); //add path to your own database service account key downloaded from firebase
 
 // Initialize the Firebase Admin SDK
 admin.initializeApp({
