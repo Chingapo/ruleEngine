@@ -26,11 +26,11 @@ root/
 ├── rule-engine-frontend/           # Next.js code for the frontend UI
 │   ├── components/                 # React components
 │   ├── app                         # Next.js pages
-│   ├── .env                        # CSS/SCSS for styling
+│   ├── .env                        # environment variables
 │   └── ...                         # Other Next.js config files
 │
 ├── README.md                       # Project documentation
-└── .gitignore                      # Node dependencies for frontend and backend
+└── .gitignore                      
 ```
 
 ## Requirements
@@ -38,3 +38,57 @@ root/
 - **Firebase account for data storage**
 - **Git for cloning the repository**
 - **Express.js for backend logic**
+
+## Setup Instructions
+### Step 1: Clone the Repository
+```
+git clone https://github.com/Chingapo/ruleEngine
+cd ruleEngine
+```
+### Step 2: Firebase Configuration
+
+- Create a Firebase project at the Firebase Console.
+- Add Firebase Firestore and create a database.
+- Download the firebaseConfig JSON file from Firebase and add it to the rule-engine-backend/ directory in the project.
+
+### Step 3: Backend Setup
+- Navigate to the backend directory:
+```
+cd rule-engine-backend
+```
+- Install backend dependencies:
+```
+npm install
+```
+- Configure firebase for use
+Update the path of JSON service account key downloaded in step 2 in server.js:
+```
+const serviceAccount = require("./your-path-to-serviceAccountKey.json");
+```
+Start the backend server:
+```
+node server.js
+```
+By default, the backend will run on http://localhost:3000.
+
+### Step 4: Frontend Setup
+- Navigate to the frontend directory:
+```
+cd rule-engine-frontend
+```
+- Install frontend dependencies:
+```
+npm install
+```
+- Port setup
+
+create a .env file in the directory and add the following content in it:
+```
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+Start the frontend application:
+bash
+Copy code
+npm run dev
+By default, the frontend will run on http://localhost:3001.
