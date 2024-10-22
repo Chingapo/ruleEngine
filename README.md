@@ -86,9 +86,46 @@ create a .env file in the directory and add the following content in it:
 ```
 NEXT_PUBLIC_API_URL=http://localhost:3000
 ```
+change the above code to whatever port your backend is running on if its not 3000.
 
-Start the frontend application:
-bash
-Copy code
+- Start the frontend application:
+```
 npm run dev
+```
 By default, the frontend will run on http://localhost:3001.
+
+## Database Schema
+
+The application stores rule definitions and metadata in Firebase. Each rule document contains the following fields:
+
+### Rule Document
+- **AST**: Represents the Abstract Syntax Tree (AST) derived from the rule string.
+- **usedAttributes**: A list of attributes that are utilized in the rule, stored for eligibility evaluation.
+- **ruleString**: The original rule string from which the AST is generated.
+
+### AST Structure
+The AST has the following properties:
+- **left**: The left child node of the AST, which can be another AST node or an operand.
+- **right**: The right child node of the AST, which can also be another AST node or an operand.
+- **operator**: A string that can either be "OR" or "AND", representing the logical operation to be applied between the left and right child nodes.
+- **type**:  String indicating the node type ("operator" for AND/OR, "operand" for conditions)
+
+### Example Data:
+```
+{
+  "type": "operator",
+  "operator": "AND",
+  "left": {
+    "type": "operand",
+    "field": "age",
+    "operator": ">",
+    "value": 30
+  },
+  "right": {
+    "type": "operand",
+    "field": "department",
+    "operator": "=",
+    "value": "Sales"
+  }
+}
+```
