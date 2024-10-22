@@ -129,3 +129,132 @@ The AST has the following properties:
   }
 }
 ```
+
+## API Documentation
+
+### 1. Create Rule
+**POST** `/create_rule`
+
+- **Description**: Creates a new rule and stores its AST representation in the database.
+- **Request Body**:
+  ```json
+  {
+    "rule": "(age > 30 AND department = 'Sales') OR (salary > 50000)"
+  }
+  ```
+- **Response**:
+  - Success(200)
+  ```json
+  {
+    "message": "Rule created",
+    "ruleId": "rule_id",
+    "ast": {...}
+  }
+  ```
+  - Error(400)
+  ```json
+  {
+    "error": "Rule string is required"
+  }
+  ```
+### 2. Update Rule (Cannot use this through frontend, only Postman for now)
+**POST** `/update_rule`
+
+- **Description**: Updates an existing rule with a new rule string and its corresponding AST.
+- **Request Body**:
+  ```json
+  {
+    "ruleId": "rule_id",
+    "updatedRuleString": "(age > 35 AND department = 'Marketing')"
+  }
+  ```
+- **Response**:
+  - Success(200)
+  ```json
+  {
+    "message": "Rule updated successfully",
+    "ruleId": "rule_id"
+  }
+  ```
+  - Error(400)
+  ```json
+  {
+    "error": "Rule ID and updated rule string are required"
+  }
+  ```
+### 3. Combine  Rule
+**POST** `/combine_rules`
+
+- **Description**: Combines multiple rules into a single AST and saves it as a new rule.
+- **Request Body**:
+  ```json
+  {
+    "ruleIds": ["rule_id_1", "rule_id_2"]
+  }
+  ```
+- **Response**:
+  - Success(200)
+  ```json
+  {
+    "message": "Rules combined successfully",
+    "ruleId": "combined_rule_id",
+    "combinedAST": {...}
+  }
+  ```
+  - Error(400)
+  ```json
+  {
+    "error": "Rule with ID rule_id not found"
+  }
+  ```
+### 4. Evaluate  Rule
+**POST** `/evaluate_rule`
+
+- **Description**: Evaluates a JSON object against the AST of the specified rule and returns the result.
+- **Request Body**:
+  ```json
+  {
+    "ruleId": "rule_id",
+    "data": {
+      "age": 35,
+      "department": "Sales",
+      "salary": 60000
+    }
+  }
+  ```
+- **Response**:
+  - Success(200)
+  ```json
+  {
+    "result": true
+  }
+  ```
+  - Error(400)
+  ```json
+  {
+    "error": "Rule with ID rule_id not found"
+  }
+  ```
+### 5. Fetch All Rules
+**GET** `/rules`
+
+- **Description**: Retrieves a list of all rules stored in the database.
+- **Response**:
+  - Success(200)
+  ```json
+  {
+    "rules": [
+      {
+        "id": "rule_id",
+        "ruleString": "(age > 30 AND department = 'Sales')"
+      },
+      ...
+    ]
+  }
+  ```
+  - Error(500)
+  ```json
+  {
+    "error": "Error fetching rules"
+  }
+  ```
