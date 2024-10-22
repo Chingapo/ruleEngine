@@ -1,7 +1,7 @@
 # Rule Engine with AST - Eligibility Determination Application
 
 ## Overview
-This Rule Engine Application determines user eligibility based on various attributes such as age, department, income, and spend. The project leverages an Abstract Syntax Tree (AST) to dynamically create, combine, and modify conditional rules. This flexible approach allows for efficient evaluation of eligibility based on incoming data.
+This Rule Engine Application determines user eligibility based on various attributes such as age, department, salary, and experience. The project leverages an Abstract Syntax Tree (AST) to dynamically create, combine, and modify conditional rules. This flexible approach allows for efficient evaluation of eligibility based on incoming data.
 
 The project follows a 3-tier architecture:
 - **Frontend**: Built with Next.js.
@@ -258,3 +258,42 @@ The AST has the following properties:
     "error": "Error fetching rules"
   }
   ```
+
+## API Tests
+Use Postman or curl to test the endpoints.
+
+## Design Choices
+- **AST Representation:**
+  As recommended, the AST handles complex conditional rules efficiently by breaking down each rule into operator and operand nodes, allowing dynamic modifications.
+- **Firebase:**
+  Firebase provides real-time capabilities and easy integration with both frontend and backend.
+- **Next.js and Express.js:**
+  Next.js manages frontend rendering, while Express.js offers a robust and scalable backend API, which can run even if the frontend has issues.
+
+## Dependencies
+### Frontend:
+ - Next.js
+ - React
+ - chakra-ui
+ - axios
+### Backend:
+ - Express.js
+ - Firebase Admin SDK
+ - cors
+ - body-parser
+### Database:
+ - Firebase Firestore
+
+## Bonus Features
+- Custom error handling for invalid rules.
+- Used update_rule for editing existing rules.
+- Shows all rules in db at home screen and everywhere where there is use of rule_id 
+
+## Test Cases verified:
+- Create individual rules from the examples using create_rule and verify their AST
+representation.
+- Combine the example rules using combine_rules and ensure the resulting AST
+reflects the combined logic.
+- Implement sample JSON data and test evaluate_rule for different scenarios.
+- Explore combining additional rules and test the functionality.
+
