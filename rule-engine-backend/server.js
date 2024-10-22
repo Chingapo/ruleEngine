@@ -1,11 +1,9 @@
 const admin = require('firebase-admin');
 const serviceAccount = require("./serviceAccountKey.json"); //add path to your own database service account key downloaded from firebase
 
-// Initialize the Firebase Admin SDK
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
-
 
 const db = admin.firestore();
 
@@ -18,8 +16,8 @@ app.use(bodyParser.json());
 
 
 app.use(cors({
-    origin: 'http://localhost:3001', // Allow requests from your frontend
-    methods: ['GET', 'POST'], // Specify allowed methods
+    origin: 'http://localhost:3001', // Allow requests from frontend
+    methods: ['GET', 'POST'], // Allowed methods
   }));
 
 
@@ -35,7 +33,7 @@ function combineRules(asts) {
     if (asts.length === 0) return null;
     if (asts.length === 1) return asts[0];
   
-    // Let's combine all rules using AND for now (can be extended later)
+    // Combine rules with AND operator
     return asts.reduce((combinedAST, currentAST) => {
       return {
         type: 'operator',
