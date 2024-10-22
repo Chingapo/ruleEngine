@@ -296,4 +296,18 @@ representation.
 reflects the combined logic.
 - Implement sample JSON data and test evaluate_rule for different scenarios.
 - Explore combining additional rules and test the functionality.
+ 
+ ## Some Test cases:
+ ![image](https://github.com/user-attachments/assets/3b29e821-0a1d-4a78-8452-10e1e953ce76)
 
+ ![image](https://github.com/user-attachments/assets/c0722c4f-5b18-4851-86f2-c34d2c730457)
+
+ ![image](https://github.com/user-attachments/assets/e8b4bb64-15ea-46ae-ac83-24cc1ed639aa)
+
+ ![image](https://github.com/user-attachments/assets/6263f401-661f-423c-9edc-25aa427da43b)
+
+ ![image](https://github.com/user-attachments/assets/054b91af-1ad9-49ff-8041-c040dd89d2ca)
+
+ ![image](https://github.com/user-attachments/assets/b498f07e-d4aa-47ed-bae4-6ecd49fd1701)
+
+ ![image](https://github.com/user-attachments/assets/54b1a5ce-9f59-4e85-9b13-85deb09779e6)
