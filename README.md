@@ -297,7 +297,7 @@ reflects the combined logic.
 - Implement sample JSON data and test evaluate_rule for different scenarios.
 - Explore combining additional rules and test the functionality.
 
-## To help you set up some quick rules, here are some rules i had put on my db and tested with them (the database will be empty initially so these rules can be used on the create rule page to get a quick start, you are free to add your own new rules with the correct format as specified.):
+## To help you set up some quick rules, here are some rules i had put on my db and tested with them (the database will be empty initially so these rules can be used on the create rule page to get a quick start, you are free to add your own new rules with the correct format as specified):
 
 - (department = 'Sales' OR department = 'Marketing') AND (age < 35) AND (experience > 4 OR salary > 59999)
 - (experience > 10 OR (salary > 80000 AND department = 'IT')) AND age > 40
