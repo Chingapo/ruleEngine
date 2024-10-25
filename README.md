@@ -49,7 +49,7 @@ cd ruleEngine
 
 - Create a Firebase project at the Firebase Console.
 - Add Firebase Firestore and create a database.
-- Download the firebaseConfig JSON file from Firebase and add it to the rule-engine-backend/ directory in the project.
+- Download the service account JSON credentials from Firebase and add it to the rule-engine-backend/ directory in the project.
 
 ### Step 3: Backend Setup
 - Navigate to the backend directory:
