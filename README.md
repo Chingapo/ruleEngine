@@ -72,7 +72,7 @@ node server.js
 By default, the backend will run on http://localhost:3000.
 
 ### Step 4: Frontend Setup
-- Navigate to the frontend directory:
+- Use a new terminal and navigate to the frontend directory:
 ```
 cd rule-engine-frontend
 ```
